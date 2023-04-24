@@ -1,0 +1,28 @@
+﻿@model MyMVCApplication.Models.Student
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+@*<div class="form-horizontal">
+    <h4>Student</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+    @Html.HiddenFor(model => model.Id)
+
+                @Html.EditorFor(Model => Model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(Model => Model.Age, new { htmlAttributes = new { @class = "form-control" } })
+           
+            <input type="submit" value="Save" class="btn btn-default" />
+       
+ }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

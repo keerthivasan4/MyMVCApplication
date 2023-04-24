@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MyMVCApplication.Models.Student>
+
+@{
+    ViewBag.Title = "second";
+}
+
+<h2>second</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="border:2px dashed grey;width:40%">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th style="border:2px dashed grey;width:20%">
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th style="border:2px dashed grey;width:40%">
+            Operations
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="border:2px dashed grey;width:40%">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td style="border:2px dashed grey;width:20%">
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td style="border:2px dashed grey;width:40%">
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @*@Html.DisplayFor(mitem => item.id)*@
+            </td>
+        </tr>
+    }
+
+    </table>
